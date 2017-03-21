@@ -1,2 +1,10 @@
-1. 2sum #array
-2. 2sum_sorted #array
+1. 2sum                       	#array
+2. 2sum_sorted                	#array
+3. remove_duplicate           	#array
+4. remove_element             	#array
+5. rotated_sorted_array_search  #array
+6. rotated_sorted_array_min     #array
+7. rotated_sorted_array_min_dup #array
+8. max_subarray                 #array
+9. max_product_subarray         #array
+10. TODO: OPTIMAL SELL&BUY      #array

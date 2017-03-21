@@ -3,48 +3,40 @@
 //Because nums[0] + nums[1] = 2 + 7 = 9,
 //return [0, 1].
 
-class Solution
-{
+class Solution {
 public:
-	vector <int> twoSum(vector<int> & nums,int target)
-	{
-		vector<int> ret;
-        //base case
+    vector<int> twoSum(vector<int>& nums, int target) 
+    {
+        vector <int> out;//store output indices
         if(nums.size()<=1)
-            return ret;
-        //Hash table
-        unordered_map<int,int> sum;
+            return out;
+        unordered_map <int,int> map1;
         for(int i = 0; i < nums.size(); i++)
         {
-            sum[nums[i]] = i;
+            map1[nums[i]] = i;
         }
-        //loop through 1 element 
+        
         for(int i = 0; i < nums.size(); i++)
         {
-            int rest_val = target - nums[i];//find the other element
-            if(sum.find(rest_val)!=sum.end())
+            int diff = target - nums[i];
+            if(map1.find(diff)!=map1.end())
             {
-                int index = sum[rest_val];//index of the other value
+                int index = map1[diff];
                 if(index == i)
+                    continue;
+                if(index < i)
                 {
-                    continue;//do not take this value if these two values are the same
-                }
-                if(index < i)//if this number is before the loop number
-                {
-                    ret.push_back(index);
-                    ret.push_back(i);
-                    return ret;//hash index before loop index
+                    out.push_back(index);
+                    out.push_back(i);
+                    return out;
                 }
                 else
                 {
-                    ret.push_back(i);
-                    ret.push_back(index);
-                    return ret;//loop index before hash index
+                    out.push_back(i);
+                    out.push_back(index);
+                    return out;
                 }
             }
         }
-		
-
-	}
-
-}
+    }
+};
