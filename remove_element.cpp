@@ -1,3 +1,5 @@
+//Given an array and a value, remove all instances of that value in place and return the new length.
+
 class Solution {
 public:
     int removeElement(vector<int>& nums, int val) 
@@ -8,11 +10,13 @@ public:
         {
             if(nums[i] == val)
             {
-                continue;
+                j++;//if we find the element in the array, increment the count
             }
-            nums[j]=nums[i];
-            j++;
+            else
+            {
+                nums[i-j] = nums[i];//otherwise, we move later value up
+            }
         }
-        return j;
+        return nums.size()-j;
     }
 };
